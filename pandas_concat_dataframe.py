@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 df=pd.read_csv(r'C:\Users\mahak\Downloads\data_jobs.csv')
 df.columns=df.columns.str.strip()
 df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
@@ -43,3 +44,7 @@ print(df_q1)
 #Inspecting to confirm.
 df_q1['job_posted_month'].value_counts().plot(kind='bar')
 plt.show()
+
+df_q1.to_csv('quater_1.csv')
+print(df_q1)
+print("File saved at:", os.path.abspath('quater_1.csv'))
